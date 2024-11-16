@@ -1,9 +1,9 @@
-
+<!DOCTYPE html>
 <html>
 <head>
   <style>
     /* Styling */
-    * {
+    * { 
       margin: 0;
       padding: 0;
     text-decoration: none;
@@ -12,9 +12,11 @@
     .search-bar > button {
       align-self: flex-end;
       background: #fcba03;
+      margin: 2% 3%;
       padding: 5px 20px;
       border: none;
       border-radius: 50px;
+      display: inline-block;
     }
 
     .search-bar > input {
@@ -26,6 +28,8 @@
 
     label, a {
       color: #ededed;
+      padding: 1% 2%;
+      font-size: 100%;
     }
 
     .search-bar {
@@ -33,7 +37,8 @@
       flex-direction: column;
       margin-top: 50px;
       padding: 0 25px;
-      gap: 5px;
+      gap: 10℅;
+      
     }
 
     #countainer {
@@ -41,6 +46,7 @@
       height: 100vh;
       display: flex;
       flex-direction: column;
+justify-content: space-between;
       gap: 15px;
     }
 
@@ -77,14 +83,15 @@
       display: flex;
       flex-direction:column;
       align-items: center;
-      margin-top: 20px
+      margin-top: 40%
          width: 100%;
     }
 
     .p-detail, .alt-Pdetail {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 5%;
+      justify-content: center;
     }
 
     .alt-heading {
@@ -105,10 +112,14 @@
       border-radius: 5px;
       display: flex;
       gap: 10px;
-      width: 270px;
+      width: 80%;
       box-shadow: 2px 2px 2px #a8a7a2;
     }
-
+    
+.p-detail > p, .alt-Pdetail > p{
+     font-size: 12px
+}
+    
     .not-found {
       color: red;
       font-weight: bold;
@@ -128,7 +139,6 @@
   display: flex;
   gap: 5px;
   padding: 5px 10px;
-  margin-top: 90%;
 }
     
 
@@ -139,10 +149,28 @@
 #footer p {
   font-size: 10px;
 }
+
+ @media (min-width: 500px) {
+  .p-detail, .alt-Pdetail {
+    margin-left: 5%;
+  }
+    
+   .p-detail > p, .alt-Pdetail > p {
+     font-size: 20px;
+   }
+
+    .p-detail > h4, .alt-Pdetail > h4 {
+     font-size: 40px; 
+ }
+
+  @media(max-width: 400px)  {
+    #countainer: 100vh;
+  }  
   </style>
 </head>
 <body>
 <div id="countainer">
+  <div>
   <div id="header">
     <a>HOME</a>
     <a>CONTACT US</a>
@@ -153,6 +181,7 @@
     <input type="text" name="search-medicine" id="searchInput" oninput="handleInput()" />
     <button onclick="showAlternativeProducts()">Find Alternative</button>
   </div> 
+  </div>
 
   <div id="main-area">
     <div id="productList"></div>
@@ -161,7 +190,7 @@
       <div id="alternative-products"></div>
     </div>
   </div>
-
+  
 
   <div id="footer">
     <div>
@@ -403,8 +432,8 @@ function filterProducts() {
      <div class="p-detail">
    <h4>Name: ${product.name}</h4> 
 
-    <p style="font-size: 12px">Mfd. By: ${product.manufacturer}</p>  
-                              <p style="font-size: 12px">Price: ${product.price}</p> 
+    <p>Manufacturer: ${product.manufacturer}</p>  
+                              <p>Price: ${product.price}</p> 
 </div>`;
       productList.appendChild(productDiv);
     });
@@ -435,8 +464,8 @@ function showAlternativeProducts() {
   <div class="alt-Pdetail">
   <h4>Name: ${alt.name}</h4>
 
-  <p style="font-size: 12px">Mfd. By: ${alt.manufacturer}</p>
-                                  <p style="font-size: 12px">Price: ${alt.price}</p>
+  <p>Mfd. By: ${alt.manufacturer}</p>
+                                  <p>Price: ${alt.price}</p>
 </div>`;
       alternativeProductsContainer.appendChild(altProductCard);
     });
