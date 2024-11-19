@@ -2,12 +2,12 @@
 <html>
 <head>
   <style>
-    
+    /* Styling */
     * { 
       margin: 0;
       padding: 0;
     text-decoration: none;
-    }
+    } 
 
     .search-bar > button {
       align-self: flex-end;
@@ -23,15 +23,13 @@
       border: 1px solid white;
       border-radius: 50px;
       background: #00674f;
-     height: 50px;
-
       padding: 10px 15px;
     }
 
     label, a {
       color: #ededed;
-      padding: 5px 10px;
-      font-size: 20px;
+      padding: 1% 2%;
+      font-size: 100%;
     }
 
     .search-bar {
@@ -39,14 +37,13 @@
       flex-direction: column;
       margin-top: 50px;
       padding: 0 25px;
-      gap: 20px;
+      gap: 10℅;
       
     }
 
     #countainer {
       background: #00674f;
-      min-height: 100vh;
-      width: 100vw;
+      height: 100vh;
       display: flex;
       flex-direction: column;
 justify-content: space-between;
@@ -85,10 +82,9 @@ justify-content: space-between;
     #productList, #alternative-products {
       display: flex;
       flex-direction:column;
-      
       align-items: center;
       margin-top: 40%
-         
+         width: 100%;
     }
 
     .p-detail, .alt-Pdetail {
@@ -106,7 +102,7 @@ justify-content: space-between;
       border:none;
       border-radius: 20px;
       padding: 5px 10px;
-      margin-left: 10px;
+      margin-left: 10%;
     }
 
     .product, .alternative-product-card {
@@ -131,7 +127,9 @@ justify-content: space-between;
       margin: 20px 10px;
     }
 
-    
+    #footer-img {
+      width: 70px;
+      mix-blend-mode: multiply;
       
     }
 
@@ -149,14 +147,27 @@ justify-content: space-between;
   }
 
 #footer p {
-  font-size: 15px;
+  font-size: 10px;
 }
 
-
-
+ @media (min-width: 500px) {
+  .p-detail, .alt-Pdetail {
+    margin-left: 5%;
+  }
     
+   .p-detail > p, .alt-Pdetail > p {
+     font-size: 20px;
+   }
 
-  
+    .p-detail > h4, .alt-Pdetail > h4 {
+     font-size: 40px; 
+ }
+
+  @media(max-width: 400px)  {
+    #countainer{
+      height: 100vh;
+    }
+  }  
   </style>
 </head>
 <body>
@@ -469,4 +480,4 @@ function showAlternativeProducts() {
   
 </script>
 </body>
-</html>
+  </html>
