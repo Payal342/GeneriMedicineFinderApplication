@@ -1,17 +1,18 @@
-<html>
  
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+<html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    /* Styling */
-    * { 
+    
+
+* {  
       margin: 0;
       padding: 0;
     text-decoration: none;
     } 
 
-    .search-bar > button {
+     button {
       align-self: flex-end;
       background: #fcba03;
       margin: 2% 3%;
@@ -19,7 +20,15 @@
       border: none;
       border-radius: 50px;
       display: inline-block;
+         
     }
+      
+     
+      
+       button:hover{
+            background: white;
+             color:#fcba03;
+       }
 
     .search-bar > input {
       border: 1px solid white;
@@ -63,16 +72,19 @@ justify-content: space-between;
     #main-area {
       display: none;
       min-height: 80%;
-      padding: 4℅ 1%;
+      padding: 4℅ 1%; 
       border: none;
       border-radius: 20px;
       background: #ededed;
       width: 100%;
       position: relative;
+       overflow: auto; 
+ margin-bottom: -30%;         
     }
 
     .product-img, .alt-img{
       width: 30%;
+      max-height: 60px;    
       border-radius: 10px;
     }
 
@@ -84,8 +96,9 @@ justify-content: space-between;
     #productList, #alternative-products {
       display: flex;
       flex-direction:column;
+      
       align-items: center;
-      margin-top: 40%
+      margin-top: 10px;
          width: 100%;
     }
 
@@ -94,6 +107,7 @@ justify-content: space-between;
       flex-direction: column;
       gap: 5%;
       justify-content: center;
+       width: 70%;  
     }
 
     .alt-heading {
@@ -107,14 +121,16 @@ justify-content: space-between;
       margin-left: 10%;
     }
 
-    .product, .alternative-product-card {
+ 
+    .cardBody,.alt-card-body {
       border: 1px solid #ccc;
       padding: 10px;
-      margin: 10px 5px;
+      margin: auto;
       border-radius: 5px;
       display: flex;
       gap: 10px;
       width: 80%;
+       mix-blend-mode: multiply;  
       box-shadow: 2px 2px 2px #a8a7a2;
     }
     
@@ -130,59 +146,46 @@ justify-content: space-between;
     }
 
     #footer-img {
-      width: 70px;
-      mix-blend-mode: multiply;
-      
+      width: 80px;
+      mix-blend-mode: mulyiply;
+      margin: 20px;
     }
 
     #footer {
   width: 100%;
   color: white;
   display: flex;
+  justify-content: space-between;       
   gap: 5px;
   padding: 5px 10px;
 }
     
+ .product, .alternative-product-card {
+       width: 100%;
+ }   
 
   #footer > div {
     width: 60%;
+     display: flex;
+     align-items: center;       
   }
 
 #footer p {
   font-size: 10px;
 }
-
- @media (min-width: 500px) {
-  .p-detail, .alt-Pdetail {
-    margin-left: 5%;
-  }
-    
-   .p-detail > p, .alt-Pdetail > p {
-     font-size: 20px;
-   }
-
-    .p-detail > h4, .alt-Pdetail > h4 {
-     font-size: 40px; 
- }
-
-  @media(max-width: 400px)  {
-    #countainer{
-      height: 100vh;
-    }
-  }  
   </style>
-</head>
+  </head>
 <body>
-<div id="countainer">
+  <div id="countainer">
   <div>
   <div id="header">
     <a>HOME</a>
     <a>CONTACT US</a>
-  </div>
+  </div> 
 
   <div class="search-bar">
     <label for="searchMedicine">Medicine Finder</label>
-    <input type="text" name="search-medicine" id="searchInput" oninput="handleInput()" />
+    <input type="text" name="search-medicine" id="searchInput" oninput = "handleInput()" />
     <button onclick="showAlternativeProducts()">Find Alternative</button>
   </div> 
   </div>
@@ -197,39 +200,41 @@ justify-content: space-between;
   
 
   <div id="footer">
-    <div>
+  <div>
     <h2>Good Morning Ritesh</h2>
-    <p>Lorem ipsum dolor sit amet. Id assumenda provident non Quis enim.</p>
-    </div>
-    
+  </div>
+    <img id="footer-img" src="https://i.ibb.co/9qgXJ6K/JA-pmbi-copy-1.png" >
   </div>
 </div>
   
-<script>
+  <script>
 let products = [
    {
     id: 1,
     name: "Paracetamol",
-    src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",
-    price: "Rs.20" ,
+    src: "https://i.ibb.co/qxkm5GH/paracip-paracetamol-650-tablet.jpg",
+    price: "Rs.30" ,
     manufacturer: "ABC PHARMA",    
-    href: "",  
+    href: "https://www.google.com/url?q=https://www.1mg.com/search/all?filter%3Dtrue%26name%3DParacetamol&sa=D&source=editors&ust=1732175799287467&usg=AOvVaw235A3k0ZYWHVleK857Sikf",  
     alternatives: [{
       name: "Crocin",
-      src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",
-      price: "Rs. ", 
+      src: "https://i.ibb.co/Trc7Bg2/crocin-650-tablet-15-nos-3-1689759566.webp",
+       href: "https://www.google.com/url?q=https://www.1mg.com/search/all?name%3Dcrocin&sa=D&source=editors&ust=1732175799287681&usg=AOvVaw0UX4qH3HpdAXNXE7Sc3TTo",   
+      price: "Rs. 20", 
       manufacturer: "GlaxoSmithKline"
     },
          {
       name: "Dolo 650",
-       src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",    
-      price: "Rs. ", 
+       src: "https://i.ibb.co/F6fGQq3/dolo-650-tablet-15-dolo-650-tablet-15-TM-TACR1-011691-1.png",
+       href: "https://www.google.com/url?q=https://www.1mg.com/search/all?name%3Ddolo%252065&sa=D&source=editors&ust=1732175799287959&usg=AOvVaw2T9_IJhapk8qdDadTrOX_k",               
+      price: "Rs. 30", 
       manufacturer: "Micro labs"
     },
-      {
+      { 
       name: "Calpol",
-      src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",  
-      price: "Rs. ", 
+      src: "https://i.ibb.co/SN6Jw5s/1000046750.webp", 
+      href: "https://www.google.com/url?q=https://www.1mg.com/search/all?name%3Dcalpol&sa=D&source=editors&ust=1732175799288191&usg=AOvVaw0N_8gzLeH3ws8vRQ5n2eiG",            
+      price: "Rs. 15", 
       manufacturer: "GSK"
     }]
   },
@@ -237,20 +242,22 @@ let products = [
   {
     id: 2,
     name: "Combiflam",
-    src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",
-    price: "Rs.30", 
+    src: "https://i.ibb.co/rvMvfzd/combiflam-tablet-20-s-1.webp",
+    price: "Rs. 55", 
     manufacturer: "Sanifa",        
-    href: "",  
+    href: "https://www.google.com/url?q=https://www.1mg.com/search/all?filter%3Dtrue%26name%3DCombiflam&sa=D&source=editors&ust=1732175799288538&usg=AOvVaw3cvQO0bdMHzbgQXlcl8h7w",  
     alternatives: [{
       name: "Ibuprofen",
-      src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",
-      price: "Rs. ", 
+      src: "https://i.ibb.co/17hwZwN/ibuprofen-tablet-400mg.png",
+      href: "https://www.google.com/url?q=https://www.1mg.com/search/all?filter%3Dtrue%26name%3DIbuprofen&sa=D&source=editors&ust=1732175799288799&usg=AOvVaw2kCPC4E2o3k4HNes2uDK9e",    
+      price: "Rs. 15", 
       manufacturer: "Abbott"
     },
         {
       name: "Brufen",
-       src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",   
-      price: "Rs. ", 
+       src: "https://i.ibb.co/wQrJtPC/images-1.jpg",
+       href: "https://www.google.com/url?q=https://www.1mg.com/search/all?name%3Dbrufen&sa=D&source=editors&ust=1732175799289069&usg=AOvVaw0TdujiXYqvtGgUGbCOLW-T",              
+      price: "Rs. 11", 
       manufacturer: "Abbott"
     } ]
   },
@@ -258,25 +265,28 @@ let products = [
   {
     id: 3,
     name: "Disprin",
-    src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",
-     price: "Rs.20", manufacturer: "Reckitt Benckisir",        
-    href: "",
+    src: "https://i.ibb.co/ZxNhFFB/images-2.jpg",   
+     price: "Rs. 10", manufacturer: "Reckitt Benckisir",        
+    href: "https://www.google.com/url?q=https://www.1mg.com/otc/disprin-regular-325mg-effervescent-tablet-for-fast-relief-from-pain-headaches-migraines-otc543020&sa=D&source=editors&ust=1732175799289453&usg=AOvVaw1QZ3zD6QUN9k4JldDXgpAC",
     alternatives: [{
       name: "Ecosprin",
-      src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",
-      price: "Rs. ", 
+      src: "https://i.ibb.co/87HCdrP/ecosprin-75-tablet-14-ecosprin-75-tablet-14-TM-TACR1-012745-1.png",
+       href: "https://www.google.com/url?q=https://www.1mg.com/search/all?filter%3Dtrue%26name%3DEcosprin&sa=D&source=editors&ust=1732175799289820&usg=AOvVaw05aI2zOFU5opDb1jbJZiil",   
+      price: "Rs. 8", 
       manufacturer: "USV Ltd"
     },
         {
       name: "Aspirin",
-      src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",    
-      price: "Rs. ", 
+      src: "https://i.ibb.co/VNpHdLm/images-3.jpg",
+      href: "https://www.google.com/url?q=https://www.1mg.com/search/all?filter%3Dtrue%26name%3DAspirin&sa=D&source=editors&ust=1732175799290057&usg=AOvVaw0Ru3CPrWmGLGbmuCXBrgNv",              
+      price: "Rs. 5", 
       manufacturer: "Bayer"
     },
           {
       name: "Aspro",
-       src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",     
-      price: "Rs. ", 
+       src: "https://i.ibb.co/hC2jP3F/images-4.jpg",
+       href: "https://www.google.com/url?q=https://www.1mg.com/search/all?filter%3Dtrue%26name%3DAspirin&sa=D&source=editors&ust=1732175799290057&usg=AOvVaw0Ru3CPrWmGLGbmuCXBrgNv",         
+      price: "Rs. 5", 
       manufacturer: "Nicholas Healtcare Ltd"
     } ]
   },
@@ -284,24 +294,28 @@ let products = [
   {
     id: 4,
     name: "ORS",
-    src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",
-    price: "Rs.25 per sachet" ,        href: "",  
+    src: "https://i.ibb.co/LYhQKtk/prolyte-ors-orange-drink-sachet-21-gm-2-1654249497.webp",
+    price: "Rs.25 per sachet" ,       
+    href: "https://www.google.com/url?q=https://www.1mg.com/search/all?name%3Dors&sa=D&source=editors&ust=1732175799290569&usg=AOvVaw3jeraG6x994S_Wv_pMmc5I",  
     alternatives: [{
       name: "Electral",
-      src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",
-      price: "Rs. ", 
+      src: "https://i.ibb.co/LSXVh03/81jr-Dr-IJo-NL.jpg",
+      href: "https://www.google.com/url?q=https://www.1mg.com/search/all?name%3Dors&sa=D&source=editors&ust=1732175799290569&usg=AOvVaw3jeraG6x994S_Wv_pMmc5I",    
+      price: "Rs. 20", 
       manufacturer: "FDC Ltd"
     },
          {
       name: "ORSL",
-      src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",     
-      price: "Rs. ", 
+      src: "https://i.ibb.co/d0KJVTK/ors0011-1-1-1.jpg",
+      href: "https://www.google.com/url?q=https://www.1mg.com/search/all?name%3Dors&sa=D&source=editors&ust=1732175799290569&usg=AOvVaw3jeraG6x994S_Wv_pMmc5I",               
+      price: "Rs. 30", 
       manufacturer: "Dabur"
     },
        {
       name: "Peditral",
-      src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",   
-      price: "Rs. ", 
+      src: "https://i.ibb.co/wsqLnV1/PED0040-1-1.webp",
+      href: "https://www.google.com/url?q=https://www.1mg.com/search/all?name%3Dors&sa=D&source=editors&ust=1732175799290569&usg=AOvVaw3jeraG6x994S_Wv_pMmc5I",      
+      price: "Rs. 15", 
       manufacturer: "Cipla"
     }           ]
   },
@@ -309,23 +323,29 @@ let products = [
   {
     id: 5,
     name: "Vicks Vaparob",
-    src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",
-    price: "Rs.40 for 25g", manufacturer: "Procter & Gamblep",     alternatives: [{
+    src: "https://i.ibb.co/vVxzzdP/vicks-vaporub-50ml-relief-from-cold-cough-headache-and-body-pain-2-1677525570.webp",
+    href: "https://www.google.com/url?q=https://www.1mg.com/search/all?name%3DVicks%2520Vaporub%26st%3Dvivks%2520vaporup%26sl%3DVicks%2520Vapor,Vicks%2520Vaporub%26s%3DVicks%2520Vaporub&sa=D&source=editors&ust=1732175799291459&usg=AOvVaw3Nr9ffEWYTRhYHPcdHg2CH",    
+    price: "Rs. 60",
+    manufacturer: "Procter & Gamblep",    
+    alternatives: [{
       name: "Zandu Balm",
-      src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",
-      price: "Rs. ", 
+      src: "https://i.ibb.co/4j7Sc6p/617d-G3-So-VKL.jpg",
+      href: "https://www.google.com/url?q=https://www.1mg.com/search/all?filter%3Dtrue%26name%3DZandu%2520balm&sa=D&source=editors&ust=1732175799291663&usg=AOvVaw0ykw1DgAOf1ynyT9rt5Mhs",    
+      price: "Rs. 45", 
       manufacturer: "Emami"
     },
         {
       name: "Amrutanjan",
-       src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",   
-      price: "Rs. ", 
+      src: "https://i.ibb.co/7J8PFJD/amrutanjan-strong-doub-50-ml-2-1674209955.webp",
+      href: "https://www.google.com/url?q=https://www.1mg.com/search/all?filter%3Dtrue%26name%3DAmrutanjan%2520balm&sa=D&source=editors&ust=1732175799291867&usg=AOvVaw12208AN806-UJbMzHT3Crn",      
+      price: "Rs. 44", 
       manufacturer: "Amrutanjan Healthcare"
     },
         {
       name: "Tiger Balm",
-      src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",    
-      price: "Rs. ", 
+      src: "https://i.ibb.co/6ZG9DTM/30-red-ointment-30g-tiger-balm-original-imaf224hjngnfmhs.jpg",
+      href: "https://www.google.com/url?q=https://www.1mg.com/search/all?name%3Dtiger%2520balm&sa=D&source=editors&ust=1732175799292133&usg=AOvVaw3CHG3QdGOOc0uTTbpqG-mg",       
+      price: "Rs. 49", 
       manufacturer: "Haw Par Healtcare"
     } ]
   },
@@ -333,49 +353,53 @@ let products = [
   {
     id: 6 ,
     name: "Digine",
-    src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",
-    price: "Rs.40 for 10tbl",          manufacturer: "Abott", 
+    src: "https://i.ibb.co/TcgzxWp/digene-gel-acidity-gas-relief-200ml-mint-flavour-sugar-free-2-1710939921.webp",
+    href: "https://www.google.com/url?q=https://www.1mg.com/search/all?name%3Ddigene&sa=D&source=editors&ust=1732175799292469&usg=AOvVaw1aFe66X7feOZgqwDqHoLpR",    
+    price: "Rs.80 for 200ml",         
+    manufacturer: "Abott", 
     alternatives: [{
       name: "Gelusil",
-      src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",
-      price: "Rs. ", 
+      src: "https://i.ibb.co/SBn6yF2/GEL0002-3-1.jpg",
+      href: "https://www.google.com/url?q=https://www.1mg.com/search/all?name%3Dgelusil&sa=D&source=editors&ust=1732175799292992&usg=AOvVaw33dncxJc79QHFvaoVEzxHV",   
+      price: "Rs. 58", 
       manufacturer: "Pfizer"
     },
           {
       name: "ENO",
-        src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",    
-      price: "Rs. ", 
+      src: "https://i.ibb.co/K2BRFZV/homepage-header-carousal-1-v3-mobile.jpg",
+      href: "https://www.google.com/url?q=https://www.1mg.com/search/all?name%3Deno&sa=D&source=editors&ust=1732175799292692&usg=AOvVaw3Ct0DOzqaQh1lKGxOvgjAA",         
+      price: "Rs. 9.7 per sachet", 
       manufacturer: "GlaxoSmithKline"
-    },
-         {
-      name: "Digine",
-        src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",   
-      price: "Rs.80 for 200ml", 
-      manufacturer: "Abott"
-    }         ]
+    }
+                ]
   },
 
   {
     id: 7,
     name: "Strepsils" ,
-    src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",
-    price: "Rs.40 for 10 tbl", manufacturer: "Reckitt Benckisir",
+    src: "https://i.ibb.co/gPrBL2K/strepsils-blister.jpg",
+     href: "https://www.google.com/url?q=https://www.1mg.com/categories/featured/top-brands/strepsils-884&sa=D&source=editors&ust=1732175799293390&usg=AOvVaw3FC-yHAfJsv5lSVaDwMyb2",   
+    price: "Rs.40 for 10 tbl",
+    manufactur: "Reckitt Benckisir",
     alternatives: [{
       name: "Vicks",
-      src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",
-      price: "Rs. ", 
+      src: "https://i.ibb.co/SycWw3B/VCD4-Packs.png",
+       href: "https://www.google.com/url?q=https://www.1mg.com/search/all?name%3Dvicks%26filter%3Dtrue%26state%3D1%26scroll_id%3DRre-0688yDrQYBn-2UkFiY-vOvNzHZ9Vlp5wJSeiWio%3D&sa=D&source=editors&ust=1732175799293624&usg=AOvVaw1jxUIpdBl9hvzbxKpQX4c1",   
+      price: "Rs. 20", 
       manufacturer: "Procter & Gamble"
     },
          {
       name: "Dabur Honitus",
-      src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",  
-      price: "Rs. ", 
+      src: "https://i.ibb.co/4RnVn0g/dabur-honitus-cough-drops.png",
+       href: "https://www.google.com/url?q=https://www.1mg.com/search/all?name%3Ddabur%2520honitus&sa=D&source=editors&ust=1732175799293801&usg=AOvVaw2L1co4T568lJi2xKrSxw0h",        
+      price: "Rs. 20", 
       manufacturer: "Dabur India Ltd"
     },
         {
       name: "Cofsils",
-        src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",  
-      price: "Rs. ", 
+        src: "https://i.ibb.co/BCwh0vy/cosils-orange.jpg",
+        href: "https://www.google.com/url?q=https://www.1mg.com/search/all?name%3Dcofsils&sa=D&source=editors&ust=1732175799294046&usg=AOvVaw19ZfhSzgljQZG9C8_XNH1t",      
+      price: "Rs. 30", 
       manufacturer: "Cipla Healtcare"
     }          ]
  },           
@@ -384,36 +408,170 @@ let products = [
     id: 8,
     name: "Benadryl" ,
     src: "https://i.ibb.co/dbnM9tp/IMG-20241115-130835-256.jpg",
-    price: "Rs.80 for per 100ml", manufacturer: "Johnson & Johnson",
+     href: "https://www.google.com/url?q=https://www.1mg.com/search/all?filter%3Dtrue%26name%3DBenadryl&sa=D&source=editors&ust=1732175799294370&usg=AOvVaw2oerg8h_PeclojrlVBEYYM",   
+    price: "Rs. 130 for per 100ml", manufacturer: "Johnson & Johnson",
     alternatives: [{
       name: "Corex",
-      src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",
-      price: "Rs. ", 
+      src: "https://i.ibb.co/hCGXtsC/corex-600x600.jpg",
+      href: "https://www.google.com/url?q=https://www.1mg.com/search/all?name%3Dcorex&sa=D&source=editors&ust=1732175799294629&usg=AOvVaw3H0k6maUCKpMly8Y-fknAw",
+      price: " Rs. 100 for per 100ml", 
       manufacturer: "Pfizer"
     },
          {
       name: "Ascoril-D",
-       src: "https://i.ibb.co/p03ZcBW/IMG-20241115-130834-799.jpg",   
-      price: "Rs. ", 
+       src: "https://i.ibb.co/PrS2VjL/asc0019.jpg",   
+      href: "https://www.google.com/url?q=https://www.1mg.com/search/all?filter%3Dtrue%26name%3DAscoril&sa=D&source=editors&ust=1732175799294811&usg=AOvVaw0Q4vLo0ehjwjCYzkxSfDOV",
+      price: " Rs. 131 for per 100ml", 
       manufacturer: "Gzlenmark"
     }         ]
+  },
+  
+    {
+    id: 9,
+    name: "Daraprin" ,
+    src: "https://i.ibb.co/6mS2GXJ/1723992724.png",
+    href: "https://www.google.com/url?q=https://www.1mg.com/drugs/daramin-25mg-tablet-201707&sa=D&source=editors&ust=1732149076095604&usg=AOvVaw2pAbShJifBcpLQzE9BE7hI", 
+    price: "Rs. 250", manufacturer: "Indica Laboratories Pvt Ltd",
+    alternatives: [{
+      name: "Daramine", 
+      src: "https://i.ibb.co/N1L3B9g/images-3.jpg",
+      href: "https://www.google.com/url?q=https://www.1mg.com/drugs/daramin-25mg-tablet-201707&sa=D&source=editors&ust=1732149076095604&usg=AOvVaw2pAbShJifBcpLQzE9BE7hI", 
+      price: "Rs.  15", 
+      manufacturer: "Indica Laboratories Pvt Ltd"
+    }]
+  }, 
+
+  {
+    id: 10,
+    name: "Glivec" ,
+    src: "https://i.ibb.co/T0RyZ2y/a0f76dfdb04146cfb0ec1f5099800eb6.png",
+    href: "https://www.google.com/url?q=https://www.1mg.com/drugs/glivec-400mg-tablet-236606?srsltid%3DAfmBOornCUHbHOOOrbzDerFlKlCNwkmwUZQQ-SVLiJocqFiRtcstyCwq%26wpsrc%3DGoogle%2BOrganic%2BSearch&sa=D&source=editors&ust=1732149076097750&usg=AOvVaw1sBxFi-N_ssPjxSgCMlvJJ", 
+    price: "Rs. 6600", manufacturer: "Natco Pharma",
+    alternatives: [{
+      name: "Veenat",
+      src: " https://i.ibb.co/Qc7zvkG/a5f53d8d234d45a695d7c6f59707c652.png",
+      href: "https://www.google.com/url?q=https://www.1mg.com/drugs/veenat-400-tablet-14360?srsltid%3DAfmBOoozkKt5QjS2GyIzsogcO_R2FtOGzBoVQFn3fwsoCUwofa590wBc%26wpsrc%3DGoogle%2BOrganic%2BSearch&sa=D&source=editors&ust=1732149076098061&usg=AOvVaw3Lz1pnlYlM4SCgIjcPDxbe",
+      price: "Rs. 1500", 
+      manufacturer: "Natco Pharma"
+    }]
+  },
+  
+ {
+    id: 11,
+    name: "Augmentin 1000 Duo Tablet" ,
+    src: "https://i.ibb.co/mtLphX2/cx456kwzkuscoxk4bl4d.png",
+    href: "https://www.google.com/url?q=https://www.1mg.com/drugs/augmentin-1000-duo-tablet-163191&sa=D&source=editors&ust=1732149076104846&usg=AOvVaw0_vj4mYtTvmFfiVcSRzcLL",
+    price: "Rs. 1000", manufacturer: "Alkem Laboratories",
+    alternatives: [{
+      name: "Clavam",
+      src: "https://i.ibb.co/pwSb0p5/cla0004.jpg",
+      href: "https://www.google.com/url?q=https://www.1mg.com/drugs/clavam-625-tablet-63841&sa=D&source=editors&ust=1732149076105114&usg=AOvVaw1k2jsXlIYSad-DuOcyAGQg",
+      price: "Rs. 193", 
+      manufacturer: "Alkem Laboratories"
+    }]
+  },
+
+  {
+    id: 12,
+    name: "Crestor" ,
+    src: "https://i.ibb.co/2FbymWL/images-1.jpg",
+    href: "https://www.google.com/url?q=https://www.1mg.com/drugs/crestor-40mg-tablet-932668&sa=D&source=editors&ust=1732149076105500&usg=AOvVaw00LccsXp6WDhpLcFtWnN2f",
+    price: "Rs.732", manufacturer: "Astrazeneca",
+    alternatives: [{
+      name: "Rosuvas",
+      src: "https://i.ibb.co/fCWVjGc/rosuvas-10-mg-tablet1-500x500.webp",
+      href: "https://www.google.com/url?q=https://www.1mg.com/drugs/rosuvas-10-tablet-113791&sa=D&source=editors&ust=1732149076105854&usg=AOvVaw2GkmHOyvJt1NOd5Nq2-6PA",
+      price: "Rs.277 ", 
+      manufacturer: "Sun Pharmaceutical Indsutries Ltd"
+    }]
+  },
+  
+  {
+    id: 13,
+    name: "Lantus" ,
+    src: "https://i.ibb.co/HTBVN4M/images-2.jpg",
+  href: "https://www.google.com/url?q=https://www.1mg.com/drugs/lantus-solostar-100iu-ml-solution-for-injection-69758&sa=D&source=editors&ust=1732149076106281&usg=AOvVaw0SNqmYyWoi97oLkJekTANR",
+    price: "Rs. 634", manufacturer: "Sanofi India Ltd",
+    alternatives: [{
+      name: "Basalog",
+      src: "https://i.ibb.co/RgptHGP/0c379a5816da4e63b74cd6889b2d382a.png",
+      href: "https://www.google.com/url?q=https://www.1mg.com/drugs/basalog-100iu-ml-refill-cartridge-164232&sa=D&source=editors&ust=1732240024128553&usg=AOvVaw3zsoZXESL0onXrDuiYMro4",
+      price: "Rs. 481", 
+      manufacturer: "Bicon"
+    }]
+  },
+
+  {
+    id: 14,
+    name: "Tamiflu" ,
+    src: "https://i.ibb.co/Y7jQQrm/shutterstock-170422580.webp",
+    href: "https://www.google.com/url?q=https://www.1mg.com/drugs/tamiflu-75mg-capsule-682558&sa=D&source=editors&ust=1732149076107071&usg=AOvVaw1DG6wblqfQm1riF-PQT_Zr",
+    price: "Rs. 1238", manufacturer: "		Roche Products India Pvt Ltd",
+    alternatives: [{
+      name: "Fluvir",
+      src: "https://i.ibb.co/WGK4TdJ/flu0174.webp",
+      href: "https://www.google.com/url?q=https://www.1mg.com/drugs/fluvir-75mg-capsule-25088&sa=D&source=editors&ust=1732149076107426&usg=AOvVaw1y66xwyu8ehohyscSQRyO5",
+      price: "Rs. 447", 
+      manufacturer: "Hetero Drugs Ltd"
+    }]
+  },
+
+
+  {
+    id: 15,
+    name: "Eliquis" ,
+    src: "https://i.ibb.co/qYzLpVg/eliquis-5mg-tablet.jpg",
+    href: "https://www.google.com/url?q=https://www.1mg.com/drugs/eliquis-5mg-tablet-172700&sa=D&source=editors&ust=1732149076107844&usg=AOvVaw0Xw3YTju4evYNFqr9IJEK2",
+    price: "Rs. 1086", manufacturer: "Pfizer Ltd",
+    alternatives: [{
+      name: "Apigat",
+      src: "https://i.ibb.co/jHHgPPq/apigat-2-5-mg-tablet-30-s-15fa3947-9fad-47f2-bbed-8d5f500e66e9.jpg",
+      href: "https://www.google.com/url?q=https://www.1mg.com/drugs/apigat-5-tablet-540276&sa=D&source=editors&ust=1732149076108201&usg=AOvVaw1774gGoWWeq4lf8tVbMpOy",
+      price: " Rs. 533", 
+      manufacturer: "Nacto Pharma Ltd"
+    }]
+  },
+
+  {
+    id: 16,
+    name: "Zytiga" ,
+    src: "https://i.ibb.co/0jSv4qH/product-images-1719919503102-367500702-Zytiga-250mg-Tablet-103434-1.jpg",
+    href: "https://www.google.com/url?q=https://www.apollopharmacy.in/medicine/mytera-250mg-tablet-120-s&sa=D&source=editors&ust=1732149076096728&usg=AOvVaw0fsMuks2V18l_H6bgg3OOR",
+    price: "Rs. 75000", manufacturer: "Mylan Pharma",
+    alternatives: [{
+      name: "Mytera",
+      src: "https://i.ibb.co/qJhQByL/cx456kwzkuscoxk4bl4d.png",
+      href: "https://www.google.com/url?q=https://www.apollopharmacy.in/medicine/mytera-250mg-tablet-120-s&sa=D&source=editors&ust=1732149076096728&usg=AOvVaw0fsMuks2V18l_H6bgg3OOR",
+      price: "Rs. 15000", 
+      manufacturer: "Mylan Pharma"
+    },
+
+    {
+      name: "Abitate",
+      src: "https://i.ibb.co/4ZxBbmF/product-images-1632405352428-700552497-100012-1.jpg",
+      href: "https://www.google.com/url?q=https://www.apollopharmacy.in/medicine/abitate-250mg-tab-120-s&sa=D&source=editors&ust=1732149076097158&usg=AOvVaw09ER9rjtjekTJPXXVpzcXF",
+      price: "Rs. 29000", 
+      manufacturer: "RPG Life Sciences"
+    } 
+   ]
   }
 ];
+  
+  
 
-// Handle input changes and toggle main-area visibility
 function handleInput() {
   const searchInput = document.getElementById("searchInput").value.toLowerCase();
   const mainArea = document.getElementById("main-area");
   const productList = document.getElementById("productList");
 
   if (searchInput.trim() === "") {
-    mainArea.style.display = "none"; // Hide main-area if input is empty
-    productList.innerHTML = ""; // Clear the product list
+    mainArea.style.display = "none"; 
+    productList.innerHTML = "";  
     return;
   }
 
-  mainArea.style.display = "block"; // Show main-area if input is not empty
-  filterProducts(); // Call filterProducts to show results
+  mainArea.style.display = "block";
+  filterProducts(); 
 }
 
 function filterProducts() {
@@ -422,9 +580,7 @@ function filterProducts() {
   const alternativeContainer = document.getElementById('alternative-products-container');
 
   productList.innerHTML = '';
-  alternativeContainer.style.display = 'none'; // Hide alternative section by default
-
-  // Find all products that include the search input in their name
+  alternativeContainer.style.display = 'none'; 
   const filteredProducts = products.filter(p => p.name.toLowerCase().includes(searchInput));
 
   if (filteredProducts.length > 0) {
@@ -432,13 +588,16 @@ function filterProducts() {
       const productDiv = document.createElement("div");
       productDiv.classList.add("product");
       productDiv.innerHTML = `
+       <a href="${product.href}" target="_blank" style="color: inherit ">
+          <div class="cardBody">
       <img src = "${product.src}" class ="product-img">
      <div class="p-detail">
    <h4>Name: ${product.name}</h4> 
 
     <p>Manufacturer: ${product.manufacturer}</p>  
-                              <p>Price: ${product.price}</p> 
-</div>`;
+    <p>Price: ${product.price}</p> 
+</div>
+  </div></a>`; 
       productList.appendChild(productDiv);
     });
   } else {
@@ -456,30 +615,29 @@ function showAlternativeProducts() {
 
   alternativeProductsContainer.innerHTML = '';
 
-  // Find the product that exactly matches the search input
+
   const product = products.find(p => p.name.toLowerCase() === searchInput);
 
   if (product && product.alternatives) {
     product.alternatives.forEach(alt => {
       const altProductCard = document.createElement('div');
       altProductCard.className = 'alternative-product-card';
-      altProductCard.innerHTML = `
+      altProductCard.innerHTML = `<a href="${alt.href}" target="_blank" style="color: inherit">
+     <div class="alt-card-body">         
    <img src = "${alt.src}" class="alt-img">   
   <div class="alt-Pdetail">
   <h4>Name: ${alt.name}</h4>
 
   <p>Mfd. By: ${alt.manufacturer}</p>
                                   <p>Price: ${alt.price}</p>
-</div>`;
+</div> </div> </a>`;
       alternativeProductsContainer.appendChild(altProductCard);
     });
-    alternativeContainer.style.display = 'block'; // Show alternatives if found
+    alternativeContainer.style.display = 'block'; 
   } else if (!product) {
-    alert("Product Not Found! Please enter a valid product name.");
+    alert(" Please enter a valid medicine name.");
   }
 }
-      
-  
-</script>
+  </script>
 </body>
-  </html>
+</html>
