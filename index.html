@@ -1,4 +1,4 @@
- 
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -616,9 +616,9 @@ function showAlternativeProducts() {
   alternativeProductsContainer.innerHTML = '';
 
 
-  const product = products.find(p => p.name.toLowerCase() === searchInput);
+  const product = products.find(p => p.name.toLowerCase().includes(searchInput) );
 
-  if (product && product.alternatives) {
+ if(product && product.alternatives) {
     product.alternatives.forEach(alt => {
       const altProductCard = document.createElement('div');
       altProductCard.className = 'alternative-product-card';
@@ -634,7 +634,7 @@ function showAlternativeProducts() {
       alternativeProductsContainer.appendChild(altProductCard);
     });
     alternativeContainer.style.display = 'block'; 
-  } else if (!product) {
+  } else {
     alert(" Please enter a valid medicine name.");
   }
 }
