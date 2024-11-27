@@ -14,7 +14,33 @@
     text-decoration: none;
     } 
 
-     button {
+     .h-btn {
+        background: #0aa15a;
+        border: none;
+        color: #ededed;
+        font-size: 15px;
+         
+  }
+      
+   #div {
+         background: #ededed;
+         margin-bottom: -90vh;
+         position: relative;
+         z-index: 20;
+         diplay: flex;
+         flex-direction: column;
+         gap: 20px;
+         height: 90vh;
+         display: none;
+         padding: 20px 40px;
+         overflow: auto;
+         
+   }
+ #div > p {     
+         margin-bottom: 10px;
+ }   
+
+     #find-alt {
       align-self: flex-end;
       background: #fcba03;
       margin: 2% 3%;
@@ -22,16 +48,13 @@
       border: none;
       border-radius: 50px;
       display: inline-block;
-         
+      transition: all 0.2s ease;   
     }
       
-     
+    #find-alt:active {
+          transform: scale(0.96);
+    } 
       
-       button:hover{
-            background: white;
-             color:#fcba03;
-       }
-
     .search-bar > input {
       border: 1px solid white;
       border-radius: 50px;
@@ -68,7 +91,7 @@ justify-content: space-between;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 5px;
+      padding: 5px 10px;
     }
 
     #main-area {
@@ -181,14 +204,22 @@ justify-content: space-between;
   <div id="countainer">
   <div>
   <div id="header">
-    <a>HOME</a>
-    <a>CONTACT US</a>
+     <button class = "h-btn" id="home" onclick="hideAboutMe()" >HOME</button>
+    <button class = "h-btn" id="about-us" onclick="showAboutMe()">ABOUT ME</button>
   </div> 
+
+    <div id="div">
+            <h3 class="hello">Hello..!</h3>   
+           <p>My name is Payal. I am a Class 12 (Arts) student at Guru Nanak Girls' Inter College. I live in the main city area of Saharanpur. I come from a close-knit family, which includes my mother and a younger brother. My mother is a working woman.</p>  
+           <p>I initially wanted to become a sketch artist, but nowadays there are so many smart applications available that can create a sketch version of any image in less than 2 minutes, compared to the 3 hours it used to take to draw one. What fascinates me the most about coding is how it allows us to create such smart applications. The best thing I feel about coding is that skills matter more than a degree to become a coder.</p> 
+           <p>I joined the Code Yogi course in May 2024 through a link sent by my class teacher in our class attendance group. It has been six months since I started this course. The course focuses on web development, and so far, I have learned three languages: HTML, CSS, and JavaScript. I am doing this course on my mother's phone. Based on my hard work and good learning skills, I achieved a place on the list of students who were performing well in the course in our district.</p>
+           <p>In the future, I want to become a front-end developer. I want to become a front-end developer because in this field, I can technically showcase my creativity.</p>              
+     </div>
 
   <div class="search-bar">
     <label for="searchMedicine">Medicine Finder</label>
     <input type="text" name="search-medicine" id="searchInput" oninput = "handleInput()" />
-    <button onclick="showAlternativeProducts()">Find Alternative</button>
+    <button onclick="showAlternativeProducts()" id="find-alt">Find Alternative</button>
   </div> 
   </div>
 
@@ -640,6 +671,16 @@ function showAlternativeProducts() {
     alert(" Please enter a valid medicine name.");
   }
 }
+
+function hideAboutMe() {
+       let div = document.getElementById("div");
+       div.style.display = 'none';
+ }    
+      
+function showAboutMe() {
+        let div = document.getElementById("div");
+        div.style.display = 'block';
+  }      
   </script>
 </body>
 </html>
