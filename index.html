@@ -198,6 +198,17 @@ justify-content: space-between;
 #footer p {
   font-size: 10px;
 }
+
+  h2 {
+        align-self: flex-start;
+  }   
+      
+  span {
+       display: flex;
+       flex-direction: column;
+       justify-content: flex-end; 
+       padding-bottom: 10px;      
+  }  
   </style>
   </head>
 <body>
@@ -233,9 +244,10 @@ justify-content: space-between;
   
 
   <div id="footer">
-  <div>
-    <h2>Good Morning Ritesh</h2>
-  </div>
+  <span>
+     <h2>Good Morning </h2>
+     <h2>Ritesh</h2>
+  </span>
     <img id="footer-img" src="https://i.ibb.co/9qgXJ6K/JA-pmbi-copy-1.png" >
   </div>
 </div>
@@ -647,7 +659,10 @@ function showAlternativeProducts() {
   const alternativeContainer = document.getElementById('alternative-products-container');
 
   alternativeProductsContainer.innerHTML = '';
-
+  if(searchInput === '') {
+    alert(" Please enter a valid medicine name.");
+    return;
+  }
 
   const product = products.find(p => p.name.toLowerCase().includes(searchInput) );
 
@@ -667,9 +682,7 @@ function showAlternativeProducts() {
       alternativeProductsContainer.appendChild(altProductCard);
     });
     alternativeContainer.style.display = 'block'; 
-  } else {
-    alert(" Please enter a valid medicine name.");
-  }
+  } 
 }
 
 function hideAboutMe() {
