@@ -247,7 +247,7 @@ justify-content: space-between;
   <div id="footer">
   <span>
      <h2>Good Morning </h2>
-     <h2>Ritesh</h2>
+     <h2 id="name"></h2>
   </span>
     <img id="footer-img" src="https://i.ibb.co/9qgXJ6K/JA-pmbi-copy-1.png" >
   </div>
@@ -665,7 +665,7 @@ function showAlternativeProducts() {
     return;
   }
 
-  const product = products.find(p => p.name.toLowerCase().includes(searchInput) );
+  const product = products.find(p => p.name.toLowerCase() === searchInput);
 
  if(product && product.alternatives) {
     product.alternatives.forEach(alt => {
@@ -694,7 +694,17 @@ function hideAboutMe() {
 function showAboutMe() {
         let div = document.getElementById("div");
         div.style.display = 'block';
-  }      
+  }
+    
+ let userName = prompt("Plz enter your name first");
+ let name = document.getElementById("name");
+
+   function showUserName() {
+      name.innerHTML = `${userName}`;
+      return;
+   }
+    
+    showUserName(userName)
   </script>
 </body>
 </html>
