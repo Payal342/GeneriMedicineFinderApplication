@@ -47,13 +47,20 @@
       padding: 5px 20px;
       border: none;
       border-radius: 50px;
-      display: inline-block;
-      transition: all 0.2s ease;   
+      display: inline-block;   
     }
-      
-    #find-alt:active {
-          transform: scale(0.96);
-    } 
+
+#find-alt, 
+.product, 
+.alternative-product-card{
+      transition: all 0.2s ease;
+}
+ 
+#find-alt:active,
+.product:active,
+.alternative-product-card:active{
+      transform: scale(0.96);
+}
       
     .search-bar > input {
       border: 1px solid white;
@@ -145,6 +152,7 @@ justify-content: space-between;
       border-radius: 20px;
       padding: 5px 10px;
       margin-left: 10%;
+      margin-top: 30px;
     }
 
  
@@ -209,7 +217,57 @@ justify-content: space-between;
        flex-direction: column;
        justify-content: flex-end; 
        padding-bottom: 10px;      
-  }  
+  } 
+
+   @media (min-width: 768px){
+      #find-alt:hover,
+      .product:hover,
+      .alternative-product-card:hover{
+
+          transform: scale(0.96);
+
+    }
+      
+.cardBody,.alt-card-body,.product, .alternative-product-card{
+            width: 270px;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            
+      }
+      
+      .cardBody,.alt-card-body{
+            justify-content: center;
+      }
+      
+      #productList, #alternative-products {
+            flex-direction: row;
+            gap: 20px;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin: 40px;
+      }
+      
+      .product-img,.alt-img{
+            width: 100%;
+            max-height: 50%;
+      }
+      
+      .p-detail,.alt-Pdetail{
+          padding: 20px 5px;
+           
+      }
+      
+      h3 {
+            font-size: 25px;
+            margin-top: 50px;
+            margin-bottom: 10px;
+      }
+      
+       p {
+            font-size: 50px;
+      }
+   } 
   </style>
   </head>
 <body>
@@ -246,7 +304,7 @@ justify-content: space-between;
 
   <div id="footer">
   <span>
-     <h2>Hello.....!</h2>
+     <h2 id="greet"></h2>
      <h2 id="name"></h2>
   </span>
     <img id="footer-img" src="https://i.ibb.co/9qgXJ6K/JA-pmbi-copy-1.png" >
@@ -696,15 +754,26 @@ function showAboutMe() {
         div.style.display = 'block';
   }
     
- let userName = prompt("Plz enter your name first");
- let name = document.getElementById("name");
-
-   function showUserName() {
-      name.innerHTML = `${userName}`;
-      return;
+ function greetUser() {
+   let hour =  new Date().getHours() 
+   let username = prompt("Please enter enter name first.")
+   let name = document.getElementById('name');
+   let greet = document.getElementById('greet');
+   
+   if(hour < 12) {
+     name.innerHTML = username;
+     greet.innerHTML = "Good morning";
+   } else if(hour > 12) {
+     name.innerHTML = username;
+     greet.innerHTML = "Good afternoon"
+   }else if(hour > 17) {
+     name.innerHTML = username;
+     greet.innerHTML = "Good evening"
+   }else {
+     name.innerHTML = username;
+     greet.innerHTML = "Good night"
    }
-    
-    showUserName(userName)
+ }
   </script>
 </body>
 </html>
