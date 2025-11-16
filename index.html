@@ -760,7 +760,7 @@ function showAboutMe() {
    let name = document.getElementById('name');
    let greet = document.getElementById('greet');
    
-   if(hour < 12) {
+   if(hour < 12 || hour == 12) {
      name.innerHTML = username;
      greet.innerHTML = "Good morning";
    } else if(hour > 12) {
