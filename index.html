@@ -763,10 +763,10 @@ function showAboutMe() {
    if(hour < 12 || hour == 12) {
      name.innerHTML = username;
      greet.innerHTML = "Good Morning";
-   } else if(hour > 12) {
+   } else if(hour < 17) {
      name.innerHTML = username;
      greet.innerHTML = "Good Afternoon"
-   }else if(hour > 17) {
+   }else if(hour < 21) {
      name.innerHTML = username;
      greet.innerHTML = "Good Evening"
    }else {
